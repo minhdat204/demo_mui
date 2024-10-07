@@ -46,14 +46,17 @@ function App() {
     const newTasks = tasks.filter((_, i) => i !== index);
     setTasks(newTasks);
   };
+  /*
+    #1e1e1e
+    #404040: 
+  */
   const theme = createTheme({
    palette: {
     mode: "dark",
     background:{
-      default: '#3d8d88',
-      light: "#f5f5f5",
-      dark: "#212121",
-      paper: '#1d7baf',
+      default: '#1e1e1e',
+      paper: '#404040',
+      checked: '#404040',
     }
    }
   });
@@ -62,7 +65,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline/>
       <Box component="section" sx={{ textAlign: "center"}}>
-        <Box component="section" sx={{ p:2, textAlign: "center"}} backgroundColor = "background.paper">
+        <Box component="section" sx={{ p:3, textAlign: "center"}} backgroundColor = "background.paper">
           <Typography variant="h4" sx={{paddingBottom: 2}}>
             My Todo List
           </Typography>
@@ -84,9 +87,9 @@ function App() {
                     </IconButton>
                   }
                   disablePadding
-                  sx={{ backgroundColor: item.checked ? 'red' : 'none'}}
+                  sx={{ backgroundColor: item.checked ? 'background.checked' : 'none'}}
                 >
-                  <ListItemButton role={undefined} onClick={() => {toggleCheck(index)}} dense sx={{p:"10px"}}>
+                  <ListItemButton role={undefined} onClick={() => {toggleCheck(index)}} dense sx={{p: "10px 20px"}}>
                     <ListItemText primary={item.text} />
                   </ListItemButton>
                 </ListItem>
